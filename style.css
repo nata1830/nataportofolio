@@ -1,0 +1,644 @@
+/* Reset dan variabel */
+:root {
+    --primary-color: #4CAF50;    /* Hijau segar */
+    --secondary-color: #8BC34A;  /* Hijau muda */
+    --accent-color: #FF9800;     /* Oranye seperti bunga */
+    --text-color: #2C3E50;       /* Biru gelap untuk teks */
+    --light-bg: #F1F8E9;         /* Hijau sangat muda untuk background */
+    --transition: all 0.3s ease;
+    --gradient: linear-gradient(135deg, #4CAF50, #8BC34A);
+    --flower-color: #E91E63;     /* Pink untuk aksen bunga */
+    --earth-color: #795548;      /* Coklat untuk elemen tanah */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+/* Header dan Navigasi */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(76, 175, 80, 0.1);
+    z-index: 1000;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: var(--transition);
+}
+
+.logo:hover {
+    color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: var(--transition);
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: var(--transition);
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* Beranda */
+#beranda {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero {
+    color: white;
+    max-width: 800px;
+    padding: 2rem;
+    animation: fadeIn 1s ease-out;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--gradient);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.cta-button:hover {
+    background: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+/* Tentang */
+#tentang {
+    padding: 8rem 5%;
+    background: var(--light-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+#tentang::before {
+    content: '🌸';
+    font-size: 40px;
+    position: absolute;
+    top: 50px;
+    right: 10%;
+    animation: float 4s ease-in-out infinite;
+}
+
+#tentang::after {
+    content: '🦋';
+    font-size: 30px;
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    animation: butterfly 8s ease-in-out infinite;
+}
+
+.tentang-content {
+    display: flex;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 3rem auto;
+    align-items: center;
+}
+
+.tentang-content img {
+    width: 350px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(76, 175, 80, 0.15);
+    transition: var(--transition);
+    border: 8px solid white;
+    position: relative;
+}
+
+.tentang-content img::after {
+    content: '🌳';
+    font-size: 24px;
+    position: absolute;
+    bottom: -30px;
+    right: -20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.tentang-content img:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(76, 175, 80, 0.2);
+}
+
+.tentang-text {
+    flex: 1;
+}
+
+.tentang-text p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.skills ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+}
+
+.skills li {
+    background: var(--gradient);
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: var(--transition);
+    box-shadow: 0 3px 10px rgba(76, 175, 80, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.skills li::before {
+    content: '✨';
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.skills li:hover::before {
+    left: 10px;
+    opacity: 1;
+}
+
+.skills li:hover {
+    padding-left: 2.5rem;
+}
+
+/* Proyek */
+#proyek {
+    padding: 8rem 5%;
+}
+
+#proyek::before {
+    content: '🌿';
+    font-size: 35px;
+    position: absolute;
+    bottom: 50px;
+    left: 5%;
+    animation: float 5s ease-in-out infinite;
+}
+
+#proyek::after {
+    content: '🌺';
+    font-size: 45px;
+    position: absolute;
+    top: 20%;
+    right: 8%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.proyek-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 3rem auto;
+}
+
+.proyek-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(76, 175, 80, 0.1);
+    transition: var(--transition);
+    border: 1px solid rgba(76, 175, 80, 0.1);
+}
+
+.proyek-card:hover {
+    transform: translateY(-10px) rotate(2deg);
+    box-shadow: 0 8px 30px rgba(76, 175, 80, 0.2);
+}
+
+.proyek-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.proyek-card:hover img {
+    transform: scale(1.05);
+}
+
+.proyek-card h3 {
+    padding: 1.5rem 1.5rem 0.5rem;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+}
+
+.proyek-card p {
+    padding: 0 1.5rem 1.5rem;
+    color: #666;
+}
+
+/* Kontak */
+#kontak {
+    padding: 8rem 5%;
+    background: var(--light-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+#kontak::before {
+    content: '🍃';
+    font-size: 30px;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    animation: spin 10s linear infinite;
+}
+
+#kontak::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: var(--accent-color);
+    opacity: 0.1;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.kontak-container {
+    max-width: 800px;
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+#kontak-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+input, textarea {
+    padding: 1rem;
+    border: 2px solid rgba(76, 175, 80, 0.2);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition);
+    background: white;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+    transform: scale(1.02);
+}
+
+textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+button[type="submit"] {
+    background: var(--gradient);
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+button[type="submit"]:hover {
+    background: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    transition: var(--transition);
+    position: relative;
+}
+
+.social-links a::before {
+    content: '🌱';
+    font-size: 14px;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.social-links a:hover::before {
+    top: -25px;
+    opacity: 1;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--earth-color);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: var(--gradient);
+    opacity: 0.3;
+}
+
+/* Animasi */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Heading Styles */
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: var(--secondary-color);
+}
+
+h2::before {
+    content: '🌻';
+    font-size: 30px;
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: float 4s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .tentang-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .tentang-content img {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .skills ul {
+        justify-content: center;
+    }
+    
+    .proyek-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: #E8F5E9;
+        --light-bg: #1B2F1C;     /* Dark green background */
+    }
+    
+    body {
+        background: #142215;      /* Darker green background */
+    }
+    
+    header {
+        background: rgba(27, 47, 28, 0.95);  /* Dark green with opacity */
+    }
+    
+    .proyek-card {
+        background: #1F331F;      /* Slightly lighter dark green */
+    }
+    
+    input, textarea {
+        background: #1F331F;
+        border-color: #2A472A;
+        color: white;
+    }
+    
+    .proyek-card p {
+        color: #B8CCB8;
+    }
+
+    .tentang-text p {
+        color: #B8CCB8;
+    }
+
+    body::before {
+        content: '⭐';
+        position: fixed;
+        top: -20px;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        font-size: 20px;
+        animation: rain 3s linear infinite;
+        z-index: -1;
+    }
+}
+
+@keyframes rain {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100vh); }
+}
+
+/* Animasi Background */
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes butterfly {
+    0% { transform: translateX(0) translateY(0) rotate(0deg); }
+    25% { transform: translateX(20px) translateY(-20px) rotate(10deg); }
+    50% { transform: translateX(40px) translateY(0) rotate(0deg); }
+    75% { transform: translateX(20px) translateY(20px) rotate(-10deg); }
+    100% { transform: translateX(0) translateY(0) rotate(0deg); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Animasi untuk social links */
+.social-links a {
+    position: relative;
+}
+
+.social-links a::before {
+    content: '🌱';
+    font-size: 14px;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.social-links a:hover::before {
+    top: -25px;
+    opacity: 1;
+}
+
+/* Animasi untuk form input */
+input:focus, textarea:focus {
+    transform: scale(1.02);
+}
+
+/* Animasi untuk heading */
+h2 {
+    position: relative;
+}
+
+h2::before {
+    content: '🌻';
+    font-size: 30px;
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: float 4s ease-in-out infinite;
+    opacity: 0.8;
+}
+  
